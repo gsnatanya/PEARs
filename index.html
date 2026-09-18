@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+			<title>Калькулятор корней</title>
+			<!-- Подключаем наши стили -->
+			<link rel="stylesheet" href="style.css">
+
+				<!-- Добавим логотип в виде фавикона -->
+				<link rel="icon" type="image/png" sizes="32x32" href="pear.png">
+</head>
+	<body class="contrast-off">
+		<!-- Обертка для всего контента -->
+		<div id="app">
+			<!-- Шапка сайта -->
+			<header>
+				<div class="brand">
+					<img src="pear.png" alt="Pear Calculator Logo" width="40" height="auto"> Калькулятор корней
+        </div>
+				<div class="toolbar">
+					<select id="language"></select>
+					<button id="fontDown" aria-label="">A⁻</button>
+					<span id="fontValue">100%</span>
+					<button id="fontUp" aria-label="">A⁺</button>
+					<button id="contrast" aria-pressed="false">Контраст</button>
+				</div>
+			</header>
+
+			<!-- Основное содержимое -->
+			<main class="workspace">
+				<section class="card">
+					<h2>Что под корнем?</h2>
+					<p>Вводите выражения прямо под знаком корня.</p>
+
+					<form id="calc">
+						<div class="input-label">
+							<label for="expression">Выражение</label>
+							<button type="button" id="clear">Очистить</button>
+						</div>
+						<textarea id="expression" placeholder="Например: x^2 + 5x - 6"></textarea>
+
+						<div class="options">
+							<div>
+								<label for="mode">Режим вычислений:</label>
+								<select id="mode">
+									<option value="numeric">Численный</option>
+									<option value="symbolic">Символьный</option>
+								</select>
+							</div>
+							<div>
+								<label for="digits">Точность (значащих цифр):</label>
+								<input type="number" id="digits" min="1" max="100" value="30">
+                    </div>
+							<div>
+								<label for="angle">Углы измеряются в:</label>
+								<select id="angle">
+									<option value="rad">Радианах</option>
+									<option value="deg">Градусах</option>
+								</select>
+							</div>
+						</div>
+
+						<button type="submit" id="submit">Вычислить корень ↗</button>
+					</form>
+
+					<div id="error" role="alert" hidden=""></div>
+
+					<div class="result-card">
+						<div class="result-status" id="status"></div>
+						<div id="result" class="result-main" aria-live="polite"></div>
+						<div id="secondWrap">
+							<div id="second"></div>
+						</div>
+						<div class="result-foot">
+							<button id="copy">Скопировать результат</button>
+							<p id="detail"></p>
+						</div>
+					</div>
+				</section>
+			</main>
+
+			<!-- Подвал сайта -->
+			<footer>
+				<a href="#" target="_blank">Документация</a>
+				&middot;
+				<a href="#" target="_blank">Поддержать автора</a>
+			</footer>
+		</div>
+
+		<!-- Подключение нашего скрипта -->
+		<script src="script.js"></script>
+	</body>
+</html>
